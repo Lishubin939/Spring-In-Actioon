@@ -23,6 +23,7 @@ public class CDPlayerTest {
     @Test
     public void cdShouldNotBeNull(){
         Assert.assertNotNull(cd);
+        cd.play();
     }
 
 }

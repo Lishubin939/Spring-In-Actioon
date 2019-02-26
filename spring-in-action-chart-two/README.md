@@ -43,7 +43,52 @@
   - c 代表spring 命名空间 需要引入xsd文件
   - compactDisc 代表构建方法中的参数
   - sgtPeppers 代表bean的id
+  - 字面量注入构造器的时候 ， 需要将参数名即name属性表明。
+  ```xml
+    <bean id="blankDisc" class="work.lishubin.spring.in.action.chart.two.soundsystem.BlankDisc">
+         <constructor-arg name="artist" value="lishubin"/>
+         <constructor-arg name="title" value="bad apple"/>
+         <constructor-arg name="tracks">
+             <list>
+                 <value>this track1</value>
+                 <value>this track2</value>
+                 <value>this track3</value>
+                 <value>this track4</value>
+                 <value>this track5</value>
+             </list>
+         </constructor-arg>
+    </bean>
+  ```
+  **注意：**
+  xml注入list时，字面值使用`<value>` 引用使用`<ref>`
+  ```xml
+   <property name="compactDisc" ref="blankDisc"/>
+  ```  
+  使用set方法向**不是强依赖的属性注入值**
   
-# 构造器注入 和 Setter方法注入
-# 装配Bean
-# 控制Bean的创建和销毁
+  **注意：**
+  - 强依赖的属性 应该使用构造器的方式注入，非强依赖的属性应该使用set方法的形式注入。
+  ## 2.5 导入和混合配置
+  自动装配bean时，spring会考虑到spring容器中的所有bean。而不在乎是JavaConfig得到的还是XML得到的。
+  ### 2.5.1 在JavaConfig中引入xml配置
+  - @Import
+  - @ImportResource 
+  
+  ### 2.5.2 在xml引入JavaConfig
+  - <import>
+  
+# 作业
+
+scene类 存放人物，剧情播放
+person类 基本三维，武器。
+weapon类 
+
+
+- 使用JavaConfig 加载所有bean
+- 使用xml 配置加载所有bean
+- 将JavaConfig 配置拆分，使用javaConf来加载xml配置
+
+- 请整理相关配置思路
+  自己的类使用javaConfig , 第三方需要配置类使用xml配置。最终统一到一个javaConfig中
+  
+- 完成Spring整合MyBatis和Druid

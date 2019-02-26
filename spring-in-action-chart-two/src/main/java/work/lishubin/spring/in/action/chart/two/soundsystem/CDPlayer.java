@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class CDPlayer {
 
+
     private CompactDisc compactDisc;
 
     @Autowired
-    public CDPlayer(CompactDisc compactDisc){
+    public void setCompactDisc(CompactDisc compactDisc) {
         this.compactDisc = compactDisc;
     }
 

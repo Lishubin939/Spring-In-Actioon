@@ -7,9 +7,26 @@
     <context:component-scan base-package="work.lishubin.spring.in.action.chart.two"/>
     -->
 
-    <bean id="sgtPeppers" class="work.lishubin.spring.in.action.chart.two.soundsystem.SgtPeppers"/>
+    <!-- JavaConfig 装配xml-->
 
-    <bean id="cdPlayer" class="work.lishubin.spring.in.action.chart.two.soundsystem.CDPlayer"
-          c:compactDisc-ref="sgtPeppers">
+    <bean class="work.lishubin.spring.in.action.chart.two.soundsystem.BlankDisc" id="compactDisc">
+        <constructor-arg name="artist" value="lishubin"/>
+        <constructor-arg name="title" value="spring"/>
+        <constructor-arg name="tracks">
+            <list>
+                <value>this is tracks1</value>
+                <value>this is tracks2</value>
+                <value>this is tracks3</value>
+                <value>this is tracks4</value>
+            </list>
+        </constructor-arg>
+
     </bean>
+
+
+
+
+
+
+
 </beans>

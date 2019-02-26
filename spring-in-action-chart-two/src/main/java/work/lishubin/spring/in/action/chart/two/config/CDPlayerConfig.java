@@ -3,6 +3,8 @@ package work.lishubin.spring.in.action.chart.two.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import work.lishubin.spring.in.action.chart.two.soundsystem.CDPlayer;
 import work.lishubin.spring.in.action.chart.two.soundsystem.CompactDisc;
 import work.lishubin.spring.in.action.chart.two.soundsystem.SgtPeppers;
 
@@ -11,11 +13,12 @@ import work.lishubin.spring.in.action.chart.two.soundsystem.SgtPeppers;
  * @date 2019/2/26  10:40
  */
 @Configuration
+@Import(CDConfig.class)
 public class CDPlayerConfig {
 
     @Bean
-    public CompactDisc sgtPeppers(){
-        return new SgtPeppers();
+    public CDPlayer cdPlayer(){
+        return new CDPlayer();
     }
 
 
